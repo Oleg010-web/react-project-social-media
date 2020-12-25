@@ -1,5 +1,5 @@
 import profilecss from "./MyPosts.module.css";
-import Post from "./myPosts/post/Post";
+import Post from "./post/Post";
 
 const MyPosts = () => {
     return <div>

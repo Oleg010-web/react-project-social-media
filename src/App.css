@@ -13,3 +13,7 @@ ul li{
   max-width: 1200px;
   margin: auto;
 }
+.app-wrapper-content{
+  grid-area: c;
+  background-color: rgb(218, 203, 7);
+}

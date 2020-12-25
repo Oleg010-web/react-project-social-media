@@ -1,4 +1,4 @@
-import MyPosts from "./MyPosts";
+import MyPosts from "./myPosts/MyPosts";
 import profilecss from "./Profile.module.css";
 const Profile = () => {
     return <div className={profilecss.content}>

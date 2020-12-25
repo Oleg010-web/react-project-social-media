@@ -8,7 +8,16 @@
   color: white;
   margin-bottom: 10px;
 }
-.item.active{
+
+.item a{
+  color: white;
+  text-decoration: none;
+}
+.item:hover{
   background-color: gold;
   color: rgb(18, 166, 224);;
+}
+
+.item a.active{
+  color: gold;
 }

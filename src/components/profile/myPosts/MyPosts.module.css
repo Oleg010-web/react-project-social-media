@@ -1,0 +1,15 @@
+.PostsBlock{
+    padding: 10px;
+}
+
+.posts{
+    margin-top: 15px;
+}
+.textareaBlock{
+    border: 3px green;
+    width: 950px;
+}
+.textareaPost{
+    width:  inherit;
+    resize: none;
+}

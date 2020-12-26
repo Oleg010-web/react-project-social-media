@@ -1,0 +1,29 @@
+.wrapper{
+    display: grid;
+    grid-template-columns: 3fr 9fr;
+}
+.wrapperItems{
+    border-left: 3px solid white;
+}
+.wrapperItem{
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+.wrapperItem a{
+    text-decoration: none;
+    color: white;
+}
+.messages{
+    padding: 10px;
+    border-left: 3px solid white;
+}
+.message{
+    margin-bottom: 10px;
+}
+.active{
+    color: rgb(18, 166, 224) !important;
+    font-size: 25px;
+    padding: 5px;
+}

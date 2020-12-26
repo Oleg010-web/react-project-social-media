@@ -2,13 +2,17 @@ import profilecss from "./MyPosts.module.css";
 import Post from "./post/Post";
 
 const MyPosts = () => {
-    return <div>
-      My posts
+    return <div className={profilecss.PostsBlock}>
+      <h3>My posts</h3>
       <div>
         New posts
         <form action="" method="post">
-          <textarea name="" id="" cols="30" rows="10"></textarea>
-          <button>Send</button>
+          <div className={profilecss.textareaBlock}>
+            <textarea name="" id="" rows="8" placeholder="Your message"  className={profilecss.textareaPost}></textarea>
+          </div>
+          <div>
+            <button>Send</button>
+          </div>
         </form>
       </div>
       <div className={profilecss.posts}>

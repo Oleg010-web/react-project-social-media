@@ -1,8 +1,23 @@
 .item{
-  color: green;
+  color: rgb(6, 105, 6);
+  display: grid;
+  grid-template-columns: 1fr 6fr 3fr;
+  grid-template-rows: repeat(2, 1fr);
 }
 .item img{
   width: 80px;
   height: 80px;
   border-radius: 60px;
+}
+.messageBlock{
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+.count{
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
 }

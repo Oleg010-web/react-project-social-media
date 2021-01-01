@@ -1,7 +1,12 @@
 import profilecss from "./MyPosts.module.css";
 import Post from "./post/Post";
 
-const MyPosts = () => {
+
+const MyPosts = (props) => {
+
+
+
+  let postElements = props.arrayData.map(p => <Post message={p.message} likeCount={p.likeCount}/>)
     return <div className={profilecss.PostsBlock}>
       <h3>My posts</h3>
       <div>
@@ -16,8 +21,7 @@ const MyPosts = () => {
         </form>
       </div>
       <div className={profilecss.posts}>
-        <Post message="Want travel to sea. Like photos please)" likeCount="25"/>
-        <Post message="Hi, everyone)This is my first post))" likeCount="30"/>
+          {postElements}
       </div>
     </div>
 }

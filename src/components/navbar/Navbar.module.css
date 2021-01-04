@@ -22,3 +22,20 @@
 .item a.active{
   color: gold;
 }
+.navbarFriends{
+  padding: 5px;
+}
+.navbarFriends a{
+  text-decoration: none;
+  margin-right: 15px;
+  color: gold;
+  font-weight: 15px;
+}
+.navbarFriends a img{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+h4{
+  margin-top: 40px;
+}

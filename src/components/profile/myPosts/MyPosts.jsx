@@ -11,18 +11,19 @@ const MyPosts = (props) => {
   let textPost = React.createRef();
   let addPost = () => {
     let text = textPost.current.value;
-    alert(text)
+    props.addPost(text)
+    textPost.current.value = '';
   }
     return <div className={profilecss.PostsBlock}>
       <h3>My posts</h3>
       <div>
         New posts
-        <form action="" method="post">
+        <form action="" >
           <div className={profilecss.textareaBlock}>
             <textarea name="" id="" rows="8" placeholder="Your message" ref={textPost} className={profilecss.textareaPost}></textarea>
           </div>
           <div>
-            <button onClick={addPost}>Send</button>
+            <button onClick={addPost} type="button">Send</button>
           </div>
         </form>
       </div>

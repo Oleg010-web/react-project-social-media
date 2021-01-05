@@ -1,3 +1,4 @@
+import { renderFullPage } from "../render";
 let state ={
     dialogsPage: {
         dialogsData : [
@@ -29,4 +30,13 @@ let state ={
     }
 }
 
+export let addPost = (postMessage)=>{
+    let postData ={
+        message: postMessage,
+        likeCount: 0
+
+    }
+    state.profilePage.PostData.unshift(postData);
+    renderFullPage(state);
+}
 export default state;

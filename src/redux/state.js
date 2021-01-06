@@ -19,7 +19,8 @@ let state ={
         PostData : [
             {message: 'Want travel to sea. Like photos please)', likeCount: 25},
             {message: 'Hi, everyone)This is my first post))', likeCount: 30}
-        ]
+        ],
+        PostChange: ""
           
     },
     navbarPage:{
@@ -30,13 +31,19 @@ let state ={
     }
 }
 
-export let addPost = (postMessage)=>{
+export let addPost = ()=>{
     let postData ={
-        message: postMessage,
+        message: state.profilePage.PostChange,
         likeCount: 0
 
     }
     state.profilePage.PostData.unshift(postData);
+    state.profilePage.PostChange = "";
+    renderFullPage(state);
+}
+
+export let textPostChange = (textChanger)=>{
+    state.profilePage.PostChange = textChanger;
     renderFullPage(state);
 }
 export default state;

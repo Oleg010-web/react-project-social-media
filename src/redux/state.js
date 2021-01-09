@@ -1,4 +1,6 @@
-import { renderFullPage } from "../render";
+let renderFullPage = ()=>{
+    console.log('rendring in process..')
+}
 let state ={
     dialogsPage: {
         dialogsData : [
@@ -13,7 +15,8 @@ let state ={
             {text: 'Will you go to bar after concert?'},
             {text: 'Hope to see you soon)'},
             {text: 'Hi, how are you?'}
-        ]    
+        ],
+        messageChange: ""    
     },
     profilePage: {
         PostData : [
@@ -31,7 +34,7 @@ let state ={
     }
 }
 
-export let addPost = ()=>{
+export const addPost = ()=>{
     let postData ={
         message: state.profilePage.PostChange,
         likeCount: 0
@@ -41,9 +44,26 @@ export let addPost = ()=>{
     state.profilePage.PostChange = "";
     renderFullPage(state);
 }
+export const dialogPost =() =>{
+    let messageData = {
+        text: state.dialogsPage.messageChange
+    }
+    state.dialogsPage.messagesData.push(messageData)
+    state.dialogsPage.messageChange=''
+    renderFullPage(state);
+}
 
-export let textPostChange = (textChanger)=>{
+export const textPostChange = (textChanger)=>{
     state.profilePage.PostChange = textChanger;
     renderFullPage(state);
+}
+
+export const messagePostChange = (messageChenger)=>{
+    state.dialogsPage.messageChange=messageChenger
+    renderFullPage(state);
+}
+
+export const renderChanging = (observer) =>{
+    renderFullPage = observer
 }
 export default state;

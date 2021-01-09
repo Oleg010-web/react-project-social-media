@@ -13,8 +13,11 @@ const Dialogs = (props) => {
     let messagesElements = props.messagesData.map(m => <Message text={m.text}/>)
     let textareaPost = React.createRef()
     let sendTextarea = () => {
+        props.dialogPost()
+    }
+    let changeMessage =()=>{
         let text = textareaPost.current.value
-        alert(text)
+        props.messagePostChange(text)    
     }
 
     return (
@@ -26,8 +29,8 @@ const Dialogs = (props) => {
                 <div className={Dialogscss.messages}>
                     {messagesElements}
                     <div>
-                        <textarea name="" id="" cols="30" rows="5" className={Dialogscss.textareaPost} ref={textareaPost}></textarea>
-                        <button className={Dialogscss.sendPost} onClick={sendTextarea}>Send</button>
+                        <textarea onChange={changeMessage} cols="30" rows="5" className={Dialogscss.textareaPost} ref={textareaPost} value={props.messageChange} ></textarea>
+                        <button type="button" className={Dialogscss.sendPost} onClick={sendTextarea}>Send</button>
                     </div>
                 </div>
             </div>

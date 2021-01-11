@@ -15,10 +15,21 @@ const App = (props) => {
     <BrowserRouter>
       <div className="app-wrapper">
         <Header/>
-        <Navbar state={props.state.navbarPage.dialogsData}/>
+        <Navbar state={props.state.navbarPage.navbarData}/>
         <div className="app-wrapper-content">
-          <Route path='/dialogs' render={() =><Dialogs dialogsData={props.state.dialogsPage.dialogsData} dialogPost={props.dialogPost} messageChange={props.state.dialogsPage.messageChange} messagePostChange={props.messagePostChange} messagesData={props.state.dialogsPage.messagesData}/>}/>
-          <Route path='/profile' render={()=><Profile postsData={props.state.profilePage.PostData} addPost={props.addPost} textPostChange={props.textPostChange} PostChange={props.state.profilePage.PostChange}/>}/>
+          <Route path='/dialogs' render={() =><Dialogs 
+            dialogsData={props.state.dialogsPage.dialogsData} 
+            dialogPost={props.dialogPost}
+            messageChange={props.state.dialogsPage.messageChange} 
+            messagePostChange={props.messagePostChange} 
+            messagesData={props.state.dialogsPage.messagesData}/>}
+          />
+          <Route path='/profile' render={()=><Profile 
+            postsData={props.state.profilePage.PostData}  
+            textPostChange={props.textPostChange} 
+            addPost={props.addPost}
+            PostChange={props.state.profilePage.PostChange}/>}
+          />
           <Route path='/news' render={()=><News/>}/>
           <Route path='/music' render={()=><Music/>}/>
           <Route path='/settings' render={()=><Settings/>} />

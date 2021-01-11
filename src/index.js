@@ -3,26 +3,27 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state from "./redux/state";
-import {addPost} from './redux/state'
+import store from "./redux/store";
 import { BrowserRouter } from 'react-router-dom';
-import { render } from '@testing-library/react';
-import { textPostChange } from './redux/state';
-import { dialogPost } from './redux/state';
-import { messagePostChange } from './redux/state';
-import { renderChanging } from './redux/state';
+
 
 let renderFullPage = (state)=>{
     ReactDOM.render(
       <React.StrictMode>
         <BrowserRouter>
-          <App state={state} addPost={addPost} textPostChange={textPostChange} dialogPost={dialogPost} messagePostChange={messagePostChange} />
+          <App 
+            state={state} 
+            addPost={store.addPost.bind(store)}
+            textPostChange={store.textPostChange.bind(store)} 
+            messagePostChange={store.messagePostChange.bind(store)} 
+            dialogPost={store.dialogPost.bind(store)}
+          />
         </BrowserRouter>
       </React.StrictMode>,
       document.getElementById('root')
     );
 }
 
-renderFullPage(state);
-renderChanging(renderFullPage);
+renderFullPage(store.getState());
+store.renderChanging(renderFullPage);
 reportWebVitals();

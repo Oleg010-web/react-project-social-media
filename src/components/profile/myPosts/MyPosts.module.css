@@ -7,9 +7,30 @@
 }
 .textareaBlock{
     border: 3px green;
-    width: 950px;
+    width: 70%;
 }
 .textareaPost{
-    width:  inherit;
+    width:  100%;
     resize: none;
+}
+form {
+    display: flex;
+}
+.profileButton{
+    height: 126px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 700;
+    border: 3px solid black;
+}
+.profileButton:hover{
+    cursor: pointer;
+    color: black;
+    font-weight: 800;
+    font-size: 22px;
+    background-color: rgb(18, 166, 224);
+    transition: 1s all;
+}
+.buttonArea{
+    width: 30%;
 }

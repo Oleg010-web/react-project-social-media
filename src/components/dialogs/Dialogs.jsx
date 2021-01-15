@@ -3,6 +3,7 @@ import DialogItem from './DialogItem/DialogItem';
 import Dialogscss from './Dialogs.module.css';
 import Message from './Message/Message';
 import React from 'react';
+import { dialogPostActionCreator, messagePostChangeActionCreator } from '../../redux/store';
 
 
 const Dialogs = (props) => {
@@ -13,11 +14,11 @@ const Dialogs = (props) => {
     let messagesElements = props.messagesData.map(m => <Message text={m.text}/>)
     let textareaPost = React.createRef()
     let sendTextarea = () => {
-        props.dialogPost()
+        props.dispatch(dialogPostActionCreator())
     }
     let changeMessage =()=>{
         let text = textareaPost.current.value
-        props.messagePostChange(text)    
+        props.dispatch(messagePostChangeActionCreator(text))    
     }
 
     return (

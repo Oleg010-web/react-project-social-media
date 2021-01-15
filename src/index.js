@@ -13,10 +13,7 @@ let renderFullPage = (state)=>{
         <BrowserRouter>
           <App 
             state={state} 
-            addPost={store.addPost.bind(store)}
-            textPostChange={store.textPostChange.bind(store)} 
-            messagePostChange={store.messagePostChange.bind(store)} 
-            dialogPost={store.dialogPost.bind(store)}
+            dispatch={store.dispatch.bind(store)}
           />
         </BrowserRouter>
       </React.StrictMode>,

@@ -37,39 +37,39 @@ let store = {
     getState() {
         return this._state ;
     },
-    addPost (){
-        let postData ={
-            message: this._state.profilePage.PostChange,
-            likeCount: 0
-    
-        }
-        this._state.profilePage.PostData.unshift(postData);
-        this._state.profilePage.PostChange = "";
-        store.renderFullPage(this._state);
-    },
-    dialogPost() {
-        let messageData ={
-            text: this._state.dialogsPage.messageChange
-        }
-        this._state.dialogsPage.messagesData.push(messageData);
-        this._state.dialogsPage.messageChange= "";
-        store.renderFullPage(this._state);
-    },
-    
-    textPostChange (textChanger){
-        this._state.profilePage.PostChange  = textChanger;
-        store.renderFullPage(this._state);
-    },
-    
-    messagePostChange (messageChenger){
-        this._state.dialogsPage.messageChange = messageChenger;
-        store.renderFullPage(this._state);
-    },
-    
+ 
     renderChanging (observer) {
         this.renderFullPage = observer
+    },
+    dispatch(action){
+        if(action.type === 'ADD-POST'){
+            let postData ={
+                message: this._state.profilePage.PostChange,
+                likeCount: 0
+        
+            }
+            this._state.profilePage.PostData.unshift(postData);
+            this._state.profilePage.PostChange = "";
+            store.renderFullPage(this._state);
+        }else if(action.type === 'TEXT-POST-CHANGE'){
+            this._state.profilePage.PostChange  = action.textChanger;
+            store.renderFullPage(this._state);
+        }else if(action.type === 'DIALOG-POST'){
+            let messageData ={
+                text: this._state.dialogsPage.messageChange
+            }
+            this._state.dialogsPage.messagesData.push(messageData);
+            this._state.dialogsPage.messageChange= "";
+            store.renderFullPage(this._state);
+        }else if(action.type === 'MESSAGE-POST-CHANGE'){
+            this._state.dialogsPage.messageChange = action.messageChenger;
+            store.renderFullPage(this._state);
+        }
     }
 }
-
+export const addPostActionCreator = () => ({type : 'ADD-POST'})
+export const updateNewPostTextActionCreator = (text) => ({type : 'TEXT-POST-CHANGE', textChanger : text})
+export const dialogPostActionCreator = () => ({type : 'DIALOG-POST'})
+export const messagePostChangeActionCreator = (text) => ({type : 'MESSAGE-POST-CHANGE', messageChenger : text})
 
 export default store;

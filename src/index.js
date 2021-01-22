@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import store from "./redux/store";
+import store from "./redux/redux-store";
 import { BrowserRouter } from 'react-router-dom';
 
 
@@ -12,6 +12,7 @@ let renderFullPage = (state)=>{
       <React.StrictMode>
         <BrowserRouter>
           <App 
+            store = {store}
             state={state} 
             dispatch={store.dispatch.bind(store)}
           />
@@ -22,5 +23,8 @@ let renderFullPage = (state)=>{
 }
 
 renderFullPage(store.getState());
-store.renderChanging(renderFullPage);
+store.subscribe( () => {
+  let state = store.getState();  
+  renderFullPage(state);
+});
 reportWebVitals();

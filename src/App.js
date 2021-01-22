@@ -3,11 +3,11 @@ import './App.css';
 import Header from './components/header/Header';
 import Navbar from './components/navbar/Navbar';
 import Profile from './components/profile/Profile';
-import Dialogs from './components/dialogs/Dialogs';
 import { BrowserRouter, Route } from 'react-router-dom';
 import News from './components/news/News';
 import Music from './components/music/Music';
 import Settings from './components/settings/Settings';
+import DialogsContainer from './components/dialogs/DialogsContainer';
 
 
 const App = (props) => {
@@ -17,16 +17,13 @@ const App = (props) => {
         <Header/>
         <Navbar state={props.state.navbarPage.navbarData}/>
         <div className="app-wrapper-content">
-          <Route path='/dialogs' render={() =><Dialogs 
-            dialogsData={props.state.dialogsPage.dialogsData} 
-            dispatch={props.dispatch}
-            messageChange={props.state.dialogsPage.messageChange} 
-            messagesData={props.state.dialogsPage.messagesData}/>}
+          <Route path='/dialogs' render={() =><DialogsContainer 
+            store = {props.store}
+          />}
           />
           <Route path='/profile' render={()=><Profile 
-            postsData={props.state.profilePage.PostData}  
-            dispatch={props.dispatch}
-            PostChange={props.state.profilePage.PostChange}/>}
+            store={props.store}
+            />}
           />
           <Route path='/news' render={()=><News/>}/>
           <Route path='/music' render={()=><Music/>}/>

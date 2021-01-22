@@ -1,4 +1,13 @@
-const profileReducer = (state, action) => {
+let initialState = {
+    PostData : [
+        {message: 'Want travel to sea. Like photos please)', likeCount: 25},
+        {message: 'Hi, everyone)This is my first post))', likeCount: 30}
+    ],
+    PostChange: ""
+      
+}
+
+const profileReducer = (state = initialState, action) => {
     switch (action.type){
         case 'ADD-POST':        
             let postData ={

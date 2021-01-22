@@ -7,16 +7,15 @@ import { addPostActionCreator, updateNewPostTextActionCreator } from "../../../r
 const MyPosts = (props) => {
 
 
-
   let postElements = props.arrayData.map(p => <Post message={p.message} likeCount={p.likeCount}/>)
   let textPost = React.createRef();
   let addPost = () => {
-    props.dispatch(addPostActionCreator())
+    props.addPost();
   }
 
   let changeTextArea= ()=>{
     let text = textPost.current.value;
-    props.dispatch(updateNewPostTextActionCreator(text))
+    props.changeTextArea(text);
   }
     return <div className={profilecss.PostsBlock}>
       <h3>My posts</h3>

@@ -14,11 +14,11 @@ const Dialogs = (props) => {
     let messagesElements = props.messagesData.map(m => <Message text={m.text}/>)
     let textareaPost = React.createRef()
     let sendTextarea = () => {
-        props.dispatch(dialogPostActionCreator())
+        props.sendTextarea();
     }
     let changeMessage =()=>{
         let text = textareaPost.current.value
-        props.dispatch(messagePostChangeActionCreator(text))    
+        props.changeMessage(text)   
     }
 
     return (

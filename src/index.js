@@ -10,20 +10,14 @@ import { Provider } from 'react-redux';
 
 let renderFullPage = (state)=>{
     ReactDOM.render(
-      <React.StrictMode>
-        <BrowserRouter>
+      <BrowserRouter>
           <Provider store = {store}>
             <App />
             </Provider>
-        </BrowserRouter>
-      </React.StrictMode>,
+        </BrowserRouter>,
       document.getElementById('root')
     );
 }
 
 renderFullPage(store.getState());
-store.subscribe( () => {
-  let state = store.getState();  
-  renderFullPage(state);
-});
 reportWebVitals();

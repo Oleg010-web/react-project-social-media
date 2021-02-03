@@ -9,18 +9,24 @@ let initialState = {
 
 const profileReducer = (state = initialState, action) => {
     switch (action.type){
-        case 'ADD-POST':        
+        case 'ADD-POST': {       
             let postData ={
                 message: state.PostChange,
                 likeCount: 0
         
             }
-            state.PostData.unshift(postData);
-            state.PostChange = "";
-            return state;
-        case 'TEXT-POST-CHANGE':    
-            state.PostChange  = action.textChanger;
-            return state;
+            return {
+                ...state,
+                PostData: [postData,...state.PostData],
+                PostChange : ""
+            }
+        }
+        case 'TEXT-POST-CHANGE': { 
+            return {
+                ...state,
+                PostChange: action.textChanger
+            }   
+        }
         default :  return state; 
         }
 }   

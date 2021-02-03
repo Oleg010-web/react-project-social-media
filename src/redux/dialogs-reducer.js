@@ -17,16 +17,23 @@ let initialState = {
 
 const dialogReduser = (state = initialState, action) => {
     switch (action.type) {
-        case 'DIALOG-POST':
+        case 'DIALOG-POST': {
             let messageData ={
                 text: state.messageChange
             }
-            state.messagesData.push(messageData);
-            state.messageChange= ""; 
-            return state;;
-        case  'MESSAGE-POST-CHANGE' :
-            state.messageChange = action.messageChenger;  
-            return state; 
+            return {
+                ...state,
+                messagesData: [...state.messagesData, messageData],
+                messageChange: ""
+
+            };
+        }
+        case  'MESSAGE-POST-CHANGE' : {
+            return {
+                ...state,
+                messageChange : action.messageChenger
+            }; 
+        }
         default:
             return state;
     }

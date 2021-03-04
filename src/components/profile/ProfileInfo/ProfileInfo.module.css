@@ -1,3 +1,33 @@
+.content{
+    background-color: lightskyblue;
+}
+
 .descriptionBlock{
     padding: 10px;
+    display: flex;
+    align-items: stretch;
+}
+.userinfoblock{
+    font-size: 22px;
+    margin-left: 15px;
+    color: white;
+}
+
+.fullName{
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+.userinfoblock a{
+    text-decoration: none;
+    margin-right: 5px;
+}
+.userinfoblock img {
+    width: 75px;
+    height: 75px;
+    cursor: pointer;
+}
+.contactsUser{
+    display: flex;
+    align-items: center;
 }

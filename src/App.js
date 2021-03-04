@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import Header from './components/header/Header';
-import Profile from './components/profile/Profile';
+import Profile from './components/profile/ProfileContainer';
 import { BrowserRouter, Route } from 'react-router-dom';
 import News from './components/news/News';
 import Music from './components/music/Music';
@@ -9,6 +9,7 @@ import Settings from './components/settings/Settings';
 import DialogsContainer from './components/dialogs/DialogsContainer';
 import NavbarContainer from './components/navbar/NavbarContainer';
 import UsersContainer from './components/users/UsersContainer';
+import ProfileContainer from './components/profile/ProfileContainer';
 
 
 const App = (props) => {
@@ -20,7 +21,7 @@ const App = (props) => {
         <div className="app-wrapper-content">
           <Route path='/dialogs' render={() =><DialogsContainer />}
           />
-          <Route path='/profile' render={()=><Profile />}
+          <Route path='/profile/:userId?' render={()=><ProfileContainer />}
           />
           <Route path='/users' render={()=> <UsersContainer />}
           />
